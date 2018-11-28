@@ -27,7 +27,7 @@ def user_name(nm):
     extendedurl = baseurl + 'technology' + '.json'
     params={'api-key': api_key}
     news_dict = requests.get(extendedurl, params).json()
-    return render_template('users.html', name=nm, news = news_dict['results'][:5])
+    return render_template('users_ec1.html', name=nm, news = news_dict['results'][:5], sections_list = sections_list)
 
 @app.route('/user/<nm>/<section>')
 def section_page(nm, section):
@@ -39,15 +39,3 @@ def section_page(nm, section):
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-#get stories
-
-#print (news)
-
-##get headlines
-#results = news_dict['results']
-#headlines = []
-#for r in results:
-#    headlines.append(r['title'])
-#
-#print (headlines[0] + '\n\n', headlines[1] + '\n\n', headlines[2] + '\n\n', headlines[3] + '\n\n', headlines[4] + '\n\n')
